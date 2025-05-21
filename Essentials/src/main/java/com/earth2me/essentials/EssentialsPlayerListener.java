@@ -402,6 +402,8 @@ public class EssentialsPlayerListener implements Listener, FakeAccessor {
                     }
                     effectiveMessage = null;
                 } else if (message == null || hideJoinQuitMessages()) {
+                    ess.getLogger().info(message);
+                    ess.getLogger().info(hideJoinQuitMessages());
                     ess.getLogger().info("3333333333333333.");
                     effectiveMessage = null;
                 } else if (ess.getSettings().isCustomJoinMessage()) {

@@ -329,7 +329,7 @@ public class EssentialsPlayerListener implements Listener, FakeAccessor {
         final String joinMessage = event.getJoinMessage();
         ess.runTaskAsynchronously(() -> delayedJoin(event.getPlayer(), joinMessage));
 
-        if (hideJoinQuitMessages() || ess.getSettings().allowSilentJoinQuit() || ess.getSettings().isCustomJoinMessage()) {
+        if (hideJoinQuitMessages() || ess.getSettings().allowSilentJoinQuit() || !ess.getSettings().isCustomJoinMessage()) {
             event.setJoinMessage(null);
         }
     }

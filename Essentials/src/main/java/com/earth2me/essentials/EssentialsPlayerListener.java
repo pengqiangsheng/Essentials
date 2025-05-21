@@ -393,16 +393,19 @@ public class EssentialsPlayerListener implements Listener, FakeAccessor {
                 if (user.isAuthorized("essentials.sleepingignored")) {
                     user.getBase().setSleepingIgnored(true);
                 }
-
+                ess.getLogger().info("1111111111111111111.");
                 final String effectiveMessage;
                 if (ess.getSettings().allowSilentJoinQuit() && (user.isAuthorized("essentials.silentjoin") || user.isAuthorized("essentials.silentjoin.vanish"))) {
+                    ess.getLogger().info("22222222222222222222.");
                     if (user.isAuthorized("essentials.silentjoin.vanish")) {
                         user.setVanished(true);
                     }
                     effectiveMessage = null;
                 } else if (message == null || hideJoinQuitMessages()) {
+                    ess.getLogger().info("3333333333333333.");
                     effectiveMessage = null;
                 } else if (ess.getSettings().isCustomJoinMessage()) {
+                    ess.getLogger().info("4444444444444444444.");
                     final String msg = (newUsername ? ess.getSettings().getCustomNewUsernameMessage() : ess.getSettings().getCustomJoinMessage())
                         .replace("{PLAYER}", player.getDisplayName()).replace("{USERNAME}", player.getName())
                         .replace("{UNIQUE}", NumberFormat.getInstance().format(ess.getUsers().getUserCount()))
@@ -412,13 +415,16 @@ public class EssentialsPlayerListener implements Listener, FakeAccessor {
                         .replace("{SUFFIX}", FormatUtil.replaceFormat(ess.getPermissionsHandler().getSuffix(player)))
                         .replace("{OLDUSERNAME}", lastAccountName == null ? "" : lastAccountName);
                     if (!msg.isEmpty()) {
+                        ess.getLogger().info("444444:msg.");
                         ess.getServer().broadcastMessage(msg);
                     }
                     effectiveMessage = msg.isEmpty() ? null : msg;
                 } else if (ess.getSettings().allowSilentJoinQuit()) {
+                    ess.getLogger().info("555555555555555555.");
                     ess.getServer().broadcastMessage(message);
                     effectiveMessage = message;
                 } else {
+                    ess.getLogger().info("66666666666666666.");
                     effectiveMessage = message;
                 }
 
